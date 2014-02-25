@@ -1,5 +1,7 @@
 package com.algorithm.leetcode;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 
 /**
@@ -36,4 +38,20 @@ public class TwoSum {
         }
         return result;
     }
+	
+	public static void main(String[] args) throws Exception {
+		Class clazz = Class.forName("com.algorithm.leetcode.TwoSum");
+		TwoSum twoSum = (TwoSum)clazz.newInstance();
+		Method[] methods = clazz.getMethods();
+		int numbers[] = {2, 7, 11, 15};
+		int target = 9;
+		for(Method method : methods) {
+			System.out.println(method.toString());
+		}
+		System.out.println(numbers.getClass().getName());
+		Method method = clazz.getMethod("twoSum",int[].class,int.class);
+		int[] result = (int[])method.invoke(twoSum, numbers, target);
+		for(int i = 0; i < result.length; i++)
+			System.out.println(result[i]);
+	}
 }
