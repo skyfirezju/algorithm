@@ -21,7 +21,7 @@ public class ValidParentheses {
 	 * [注意二]取栈顶元素前要判断栈是否为空
 	 */
     public boolean isValid(String s) {
-        Stack stack = new Stack();
+        Stack stack = new Stack<Character>();
         for(int i = 0; i < s.length(); i++) {
         	switch(s.charAt(i)) {
         	case '(':
@@ -34,21 +34,21 @@ public class ValidParentheses {
         		stack.push('{');
         		break;
         	case ')':
-        		if(!stack.isEmpty() &&(char)stack.peek() == '('){
+        		if(!stack.isEmpty() &&(Character)stack.peek() == '('){
         			stack.pop();
         		} else {
         			return false;
         		}
         		break;
         	case ']':
-        		if(!stack.isEmpty() &&(char)stack.peek() == '['){
+        		if(!stack.isEmpty() &&(Character)stack.peek() == '['){
         			stack.pop();
         		} else {
         			return false;
         		}	
         		break;
         	case '}':
-        		if(!stack.isEmpty() &&(char)stack.peek() == '{'){
+        		if(!stack.isEmpty() &&(Character)stack.peek() == '{'){
         			stack.pop();
         		} else {
         			return false;
